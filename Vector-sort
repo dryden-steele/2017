@@ -1,0 +1,200 @@
+//
+//  279HW4.cpp
+//  
+//
+//  Created by Dryden on 9/6/17.
+//
+//
+
+#include <stdio.h>
+#include <fstream>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
+int main(){
+    
+    vector<string> nameList;
+    vector<double> ageList;
+    vector<string> listCopy;
+    vector<double> newAgeList;
+    
+    ifstream inFile;
+    inFile.open("namesOne.txt");
+    
+    
+    if (!inFile) {
+        cout<<"error opening file"<<endl;
+        
+    }
+    
+    cout<<endl<<"Part 1 of 2"<<endl<<"The following names have been read into the vector:"<<endl<<endl;
+    
+    
+    string name;
+    for(int i=0;i<5;i++){
+        
+        inFile>>name;
+        nameList.push_back(name);
+        cout<<nameList.at(i)<<endl;
+        
+        
+    }
+    
+    cout<<"--------------"<<endl;
+    
+    int age;
+    for(int i=0;i<5;i++){
+        
+        cout<<"please enter the age for ";
+        cout<<nameList.at(i)<<endl;
+        cin>>age;
+        ageList.push_back(age);
+        
+    }
+    
+    
+    listCopy=nameList;
+    
+
+    cout<<"--------------"<<endl;
+    
+
+    cout<<endl;
+    
+    
+    sort(nameList.begin(), nameList.end());
+   
+    
+    
+    for (int i = 0; i < nameList.size(); i++)
+    {
+        string nametemp=nameList.at(i);
+        
+        for (int j = 0; j < nameList.size(); j++) {
+            
+            if (nametemp == listCopy.at(j))
+            {
+                newAgeList.push_back(ageList.at(j));
+                
+            }
+           
+        }
+        
+        
+    }
+    
+    cout<<"Sorted names and ages: "<<endl;
+    
+    for(int i=0;i<nameList.size();i++){
+        
+        cout<<"("<<nameList.at(i)<<", "<<newAgeList.at(i)<<")"<<endl;
+        
+        
+    }
+
+    cout<<"--------------"<<endl;
+    
+    
+    
+    
+    
+    //part 2
+    
+    
+    vector<string> nameList2;
+    vector<double> ageList2;
+    vector<string> listCopy2;
+    vector<double> newAgeList2;
+    
+    ifstream inFile2;
+    inFile2.open("namesTwo.txt");
+    
+    
+    if (!inFile2) {
+        cout<<"error opening file"<<endl;
+        
+    }
+    
+    cout<<endl<<"Part 2 of 2"<<endl<<"The following names have been read into the vector:"<<endl<<endl;
+    
+    
+    string name2;
+    
+
+    
+    while(!inFile2.eof()){
+    
+    
+        inFile2>>name2;
+        nameList2.push_back(name2);
+        cout<<name2<<endl;
+        
+    }
+    
+    cout<<"--------------"<<endl;
+    
+    int age2;
+    for(int i=0;i<nameList2.size();i++){
+        
+        cout<<"please enter the age for ";
+        cout<<nameList2.at(i)<<endl;
+        cin>>age2;
+        ageList2.push_back(age2);
+        
+    }
+    
+    
+    listCopy2=nameList2;
+    
+    
+    cout<<"--------------"<<endl;
+    
+    
+    cout<<endl;
+    
+    
+    sort(nameList2.begin(), nameList2.end());
+    
+    
+    
+    for (int i = 0; i < nameList2.size(); i++)
+    {
+        string nametemp=nameList2.at(i);
+        
+        for (int j = 0; j < nameList2.size(); j++) {
+            
+            if (nametemp == listCopy2.at(j))
+            {
+                newAgeList2.push_back(ageList2.at(j));
+                
+            }
+            
+        }
+        
+        
+    }
+    
+    cout<<"Sorted names and ages: "<<endl;
+    
+    for(int i=0;i<nameList2.size();i++){
+        
+        cout<<"("<<nameList2.at(i)<<", "<<newAgeList2.at(i)<<")"<<endl;
+        
+        
+    }
+    
+    cout<<"--------------"<<endl;
+    
+    
+    
+    
+    
+    
+    
+    return 0;
+    
+    
+}
